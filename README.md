@@ -7,7 +7,7 @@ Dependências:
 * Ter o python 3 instalado e o pacote pip.
 
 
-* Instalar o Frask
+* Instalar o Flask
 
 ```
 pip install flask
