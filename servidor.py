@@ -5,7 +5,7 @@ app = Flask(__name__)
 agenda = []
 proximo_id = 1
 
-# Operação de Create (Criação)
+
 @app.route('/contatos', methods=['POST'])
 def criar_contato():
     global proximo_id
@@ -15,12 +15,12 @@ def criar_contato():
     agenda.append(novo_contato)
     return jsonify({'mensagem': 'Contato criado com sucesso!\n'}), 201
 
-# Operação de Read (Leitura)
+
 @app.route('/contatos', methods=['GET'])
 def listar_contatos():
     return jsonify({'contatos': agenda})
 
-# Operação de Update (Atualização)
+
 @app.route('/contatos/<int:contato_id>', methods=['PUT'])
 def atualizar_contato(contato_id):
     contato_atualizado = request.json
@@ -30,7 +30,7 @@ def atualizar_contato(contato_id):
             return jsonify({'mensagem': 'Contato atualizado com sucesso!\n'})
     return jsonify({'erro': 'Contato não encontrado'}), 404
 
-# Operação de Delete (Exclusão)
+
 @app.route('/contatos/<int:contato_id>', methods=['DELETE'])
 def excluir_contato(contato_id):
     for contato in agenda:
